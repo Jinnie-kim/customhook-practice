@@ -5,6 +5,12 @@ import { useState } from 'react';
 export default function App() {
   // chageMode <- 모드를 바꿀 수 있는 함수가 필요한 것이기 때문에 setState를 가져올 필요는 없다. 최종 사용자가 쓰기 편한 형태
   const [isLightMode, changeMode] = useToggle(true); // 그냥 return 값, 결과 -> 로직 아님.
+  // 배열, 객체 -> 여러가지 요소를 묶음 처리한다.
+  // 차이점? 요소를 구분 짓는 기준
+  // 배열의 경우 index(순서), 객체의 경우 key(이름)
+  // 배열과 객체를 사용할 때, 각각 순서와 key가 중요하다.
+  // 배열을 구조분해 할당할 때 순서만 지켜주면 이름을 원하는대로 바꿀 수 있다.
+  // 객체를 구조분해 할당하려면 key값을 똑같이 맞춰줘야 한다. {state: isLightMode, changeToggle: changeMode} 이렇게 바꿔서 쓸 수는 있음.
 
   return (
     <>
