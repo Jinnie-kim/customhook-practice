@@ -13,7 +13,13 @@ class HttpClient {
   base_url = 'https://jsonplaceholder.typicode.com/';
 
   fetch(endPoint, options) {
-    return window.fetch(this.base_url + endPoint, options);
+    return window.fetch(this.base_url + endPoint, {
+      ...options,
+      headers: {
+        ...options.headers,
+        Authorization: 'ACCESS_TOKEN',
+      },
+    });
   }
 }
 const httpClient = new HttpClient();
