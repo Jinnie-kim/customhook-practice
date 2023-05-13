@@ -10,7 +10,12 @@
 // 이 코드의 경우 BASE_URL이라는 상태를 기억하고 싶으니까, class를 이용하는 것이 좋다.
 
 class HttpClient {
-  base_url = 'https://jsonplaceholder.typicode.com/';
+  // base_url = 'https://jsonplaceholder.typicode.com/';
+  // base_url = 'localhost:8000';
+
+  constructor(base_url) {
+    this.base_url = base_url;
+  }
 
   fetch(endPoint, options) {
     return window.fetch(this.base_url + endPoint, {
@@ -22,6 +27,13 @@ class HttpClient {
     });
   }
 }
-const httpClient = new HttpClient();
+const httpClient = new HttpClient('https://jsonplaceholder.typicode.com/');
+const localClient = new HttpClient('localhost:8000');
 
 export { httpClient };
+
+// ver 1
+// 'https://jsonplaceholder.typicode.com/'
+
+// ver 2
+// localhost:8000
